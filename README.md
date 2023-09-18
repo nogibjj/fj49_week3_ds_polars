@@ -37,4 +37,3 @@ This repository is integrated with a CI/CD template for automatic deployment of 
 
 You can find the template [here]([https://github.com/farazjawedd/python-template-ids706]). Feel free to use the template for other projects!
 
-## Development Environment
