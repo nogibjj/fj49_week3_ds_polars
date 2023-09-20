@@ -1,4 +1,5 @@
 import polars as pl
+import matplotlib.pyplot as plt
 
 
 # Reading the data
@@ -52,16 +53,22 @@ def std():
     return std_duration
 
 
-spotify
 # Making a plot
-# def viz():
-#     value_counts = spotify.select(pl.col("artist_name")).value_counts()
-#     top_10_value_counts = value_counts.head(10)
-#     top_10_value_counts = top_10_value_counts.to_pandas()
-#     top_10_value_counts.plot(kind="bar", x="artist_name", y="count", figsize=(20, 12))
-#     plt.xlabel("Top Artists")
-#     plt.ylabel("Number of top tracks")
-#     plt.title("Which artists had the most top tracks in the last few years?")
-#     plt.show()
+def viz():
+    frequency_df = spotify.groupby("artist_name").agg(
+        pl.col("artist_name").count().alias("frequency")
+    )
+    sorted_df = frequency_df.sort("frequency")
+    top_10_frequencies = sorted_df.tail(10)
+    # top_10_frequencies_pandas = top_10_frequencies.to_pandas()
+    plt.figure(figsize=(20, 12))
+    plt.bar(top_10_frequencies["artist_name"], top_10_frequencies["frequency"])
 
-# viz()
+    # top_10_frequencies.plot(kind="bar", x="artist_name", y="frequency", figsize=(20, 12))
+    plt.xlabel("Top Artists")
+    plt.ylabel("Number of top tracks")
+    plt.title("Which artists had the most top tracks in the last few years?")
+    plt.show()
+
+
+viz()
