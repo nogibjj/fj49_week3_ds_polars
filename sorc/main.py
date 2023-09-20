@@ -43,10 +43,10 @@ def viz():
     # top_10_frequencies_pandas = top_10_frequencies.to_pandas()
     x = plt.figure(figsize=(20, 12))
     x = plt.bar(top_10_frequencies["artist_name"], top_10_frequencies["frequency"])
-
+    print("the", type(x))
     # top_10_frequencies.plot(kind="bar", x="artist_name", y="frequency", figsize=(20, 12))
     x = plt.xlabel("Top Artists")
     x = plt.ylabel("Number of top tracks")
     x = plt.title("Which artists had the most top tracks in the last few years?")
-    x = plt.show()
+    # x = plt.show()
     return x
