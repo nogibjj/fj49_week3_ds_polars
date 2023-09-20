@@ -9,47 +9,27 @@ def reader():
 
 
 spotify = reader()
-print(spotify)
+# print(spotify)
 
 
 # Basic stats
 def mean():
-    mean_duration = int(
-        spotify.select(pl.col("duration_ms"))
-        .mean()
-        .take(1)
-        .to_pandas()["mean_duration_ms"]
-    )
+    mean_duration = int(spotify["duration_ms"].mean())
     return mean_duration
 
 
 def median():
-    median_duration = int(
-        spotify.select(pl.col("duration_ms"))
-        .median()
-        .take(1)
-        .to_pandas()["median_duration_ms"]
-    )
+    median_duration = int(spotify["duration_ms"].median())
     return median_duration
 
 
 def mode():
-    mode_duration = int(
-        spotify.select(pl.col("duration_ms"))
-        .mode()
-        .take(1)
-        .to_pandas()["mode_duration_ms"]
-    )
+    mode_duration = int(spotify["duration_ms"].mode()[0])
     return mode_duration
 
 
 def std():
-    std_duration = int(
-        spotify.select(pl.col("duration_ms"))
-        .std()
-        .take(1)
-        .to_pandas()["std_duration_ms"]
-    )
+    std_duration = int(int(spotify["duration_ms"].std()))
     return std_duration
 
 
@@ -70,5 +50,8 @@ def viz():
     plt.title("Which artists had the most top tracks in the last few years?")
     plt.show()
 
+
+x = std()
+print(x)
 
 viz()
