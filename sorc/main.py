@@ -55,7 +55,7 @@ def std():
 
 # Making a plot
 def viz():
-    frequency_df = spotify.groupby("artist_name").agg(
+    frequency_df = spotify.group_by("artist_name").agg(
         pl.col("artist_name").count().alias("frequency")
     )
     sorted_df = frequency_df.sort("frequency")
