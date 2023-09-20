@@ -29,7 +29,7 @@ def mode():
 
 
 def std():
-    std_duration = int(int(spotify["duration_ms"].std()))
+    std_duration = int(spotify["duration_ms"].std())
     return std_duration
 
 
@@ -41,17 +41,12 @@ def viz():
     sorted_df = frequency_df.sort("frequency")
     top_10_frequencies = sorted_df.tail(10)
     # top_10_frequencies_pandas = top_10_frequencies.to_pandas()
-    plt.figure(figsize=(20, 12))
-    plt.bar(top_10_frequencies["artist_name"], top_10_frequencies["frequency"])
+    x = plt.figure(figsize=(20, 12))
+    x = plt.bar(top_10_frequencies["artist_name"], top_10_frequencies["frequency"])
 
     # top_10_frequencies.plot(kind="bar", x="artist_name", y="frequency", figsize=(20, 12))
-    plt.xlabel("Top Artists")
-    plt.ylabel("Number of top tracks")
-    plt.title("Which artists had the most top tracks in the last few years?")
-    plt.show()
-
-
-x = std()
-print(x)
-
-viz()
+    x = plt.xlabel("Top Artists")
+    x = plt.ylabel("Number of top tracks")
+    x = plt.title("Which artists had the most top tracks in the last few years?")
+    x = plt.show()
+    return x
