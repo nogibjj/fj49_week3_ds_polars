@@ -1,7 +1,6 @@
 # Python - Basic descriptive statistics using POLARS library
 
-
-[![CiCd](https://github.com/nogibjj/fj49_week2_ds/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/fj49_week2_ds/actions/workflows/cicd.yml)
+[![CiCd](https://github.com/nogibjj/fj49_week3_ds_polars/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/fj49_week3_ds_polars/actions/workflows/cicd.yml)
 
 # Spotify Data Analysis
 
